@@ -1,5 +1,6 @@
 from platform import release
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Music(models.Model):
@@ -8,5 +9,6 @@ class Music(models.Model):
     album = models.CharField(max_length=255)
     release_date = models.IntegerField()
     genre = models.CharField(max_length=255)
+    liked = models.CharField
 
 

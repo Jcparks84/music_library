@@ -1,4 +1,4 @@
-import imp
+
 from django .shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -36,6 +36,15 @@ def music_detail(request, pk):
     elif request.method == 'DELETE':
         music.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['PUT'])
+def like_music(request, pk):
+    like = get_object_or_404(Music, pk=pk)
+    serializer = MusicSerializer(like, data=request.data)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     
 
