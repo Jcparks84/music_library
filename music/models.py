@@ -9,6 +9,6 @@ class Music(models.Model):
     album = models.CharField(max_length=255)
     release_date = models.IntegerField()
     genre = models.CharField(max_length=255)
-    liked = models.CharField
+    liked = models.CharField(max_length=255)
 
 
